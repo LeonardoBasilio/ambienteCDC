@@ -7,11 +7,11 @@ A Captura de Dados de Mudança (Change Data Capture, CDC) é o processo de ident
 
 Este artigo apresenta um guia abrangente para entender o CDC e configurar um pipeline de CDC usando Docker.
 
-Configuração do Docker Compose
+#Configuração do Docker Compose
 
 O arquivo Docker Compose fornecido orquestra a implantação de todos os serviços essenciais, incluindo MySQL, Debezium, Kafka e Kafka UI.
 
-Arquitetura
+#Arquitetura
 
 O pipeline de CDC segue o fluxo: MySQL -> CDC -> Debezium -> Kafka.
 
@@ -30,7 +30,7 @@ Acesse o MySQL para configurar o banco de dados. Crie um conector Debezium para 
 
 Configure o Debezium e o Kafka para monitorar mudanças e publicá-las.
 
-Kafka UI
+#Kafka UI
 
 Configure o Kafka UI para monitoramento visual dos fluxos de dados do Kafka.
 
