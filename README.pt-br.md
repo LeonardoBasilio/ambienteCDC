@@ -1,7 +1,5 @@
-# Multilanguage README Pattern
+# Captura de Dados de Mudança (CDC) Com Docker, Apache Kafka, Debezium e MySQL
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/LeonardoBasilio/ambienteCDC/blob/main/README.md)
-
-Captura de Dados de Mudança (CDC) Com Docker, Apache Kafka, Debezium e MySQL
 
 Introdução
 
