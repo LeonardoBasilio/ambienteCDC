@@ -1,0 +1,33 @@
+anotações do projeto para escrever no artigo
+sobre o kafka
+
+exec kafka /kafka/bin/kafka-topics.sh \--bootstrap-server kafka:9092 \--list
+este comando lista os tópicos
+
+exec kafka /kafka/bin/kafka-topics.sh --delete --topic dbserver --bootstrap-server kafka:9092
+este comando deleta um tópico
+ 
+exec kafka /kafka/bin/kafka-topics.sh --describe --topic schema-changes.data --bootstrap-server kafka:9092          
+este comando descreve um tópico
+
+exec kafka /kafka/bin/kafka-topics.sh --create --topic schema-changes.data --bootstrap-server kafka:9092 --partitions 1 --replication-factor 1
+este comando cria um tópico
+
+exec kafka /kafka/bin/kafka-console-producer.sh --broker-list kafka:9092 --topic dbserver1.cdc.demo  
+este comando permite acessar um tópico e enviar mensagens
+
+
+exec kafka /kafka/bin/kafka-console-consumer.sh     --bootstrap-server kafka:9092     --from-beginning    --property print.key=true   
+  --topic dbserver1.cdc.demo
+  este comando permite visualizar as mensagens recebidas no tópico
+
+
+
+debezium
+
+curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @./conf/register-mysql.json
+este comando cria um conector debeziu
+
+$ curl -X DELETE http://localhost:8083/connectors/data-mysql-connector
+este comando deleta um connector
+
