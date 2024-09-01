@@ -1,5 +1,5 @@
 # Multilanguage README Pattern
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/LeonardoBasilio/ambienteCDC/main/README.pt-br.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/LeonardoBasilio/ambienteCDC/blob/main/README.pt-br.md)
 
 Change Data Capture (CDC) With Docker, Apache Kafka, Debezium and MYSQL.
 
