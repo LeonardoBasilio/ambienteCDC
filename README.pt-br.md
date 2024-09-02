@@ -28,33 +28,10 @@ O pipeline de CDC segue o fluxo:
 ```
 docker-compose up -d
 ```
-- Acesse o MySQL para configurar o banco de dados. 
-
-- Crie um conector Debezium para monitorar o MySQL e publicar nos tópicos do Kafka.
-
-- Configure o Debezium e o Kafka para monitorar mudanças e publicá-las.
-
-## Kafka UI
-
-Configure o Kafka UI para monitoramento visual dos fluxos de dados do Kafka.
-
-Acesse o Kafka UI em:![(http://localhost:10000/)]
-
-## Conclusão
-
-Integrar o Apache Spark Streaming no pipeline de CDC permite que as organizações extraiam insights valiosos dos dados em streaming em tempo real. Com o Docker Compose facilitando a implantação e o gerenciamento, essa arquitetura oferece uma solução escalável e eficiente para a integração e análise de dados em tempo real.
-
-Feliz Aprendizado! ✌️
-
-## Comandos úteis
+- Acesse o MySQL para configurar o banco de dados.
 ```
-# Iniciar o Docker Compose
-docker-compose up -d
+docker-compose exec mysql bash -c 'mysql -u root -pdebezium'
 ```
-
-```
-# Acessar o MySQL como usuário root
-docker-compose exec mysql bash -c 'mysql -u debezium -pdbz'
 
 # Após a autenticação, execute os comandos SQL
 SELECT user, host FROM mysql.user;
@@ -91,6 +68,32 @@ INSERT INTO cliente VALUES (5, "Pedro", "Almeida", "Porto Alegre");
 INSERT INTO cliente VALUES (6, "Juliana", "Souza", "Fortaleza");
 INSERT INTO cliente VALUES (7, "Rafael", "Costa", "Salvador");
 ```
+
+- Crie um conector Debezium para monitorar o MySQL e publicar nos tópicos do Kafka.
+
+- Configure o Debezium e o Kafka para monitorar mudanças e publicá-las.
+
+## Kafka UI
+
+Configure o Kafka UI para monitoramento visual dos fluxos de dados do Kafka.
+
+Acesse o Kafka UI em:![(http://localhost:10000/)]
+
+## Conclusão
+
+Integrar o Apache Spark Streaming no pipeline de CDC permite que as organizações extraiam insights valiosos dos dados em streaming em tempo real. Com o Docker Compose facilitando a implantação e o gerenciamento, essa arquitetura oferece uma solução escalável e eficiente para a integração e análise de dados em tempo real.
+
+Feliz Aprendizado! ✌️
+
+## Comandos úteis
+```
+# Iniciar o Docker Compose
+docker-compose up -d
+```
+
+```
+
+
 ```
 # Registrar o conector Debezium
 curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @./conf/register-mysql.json
