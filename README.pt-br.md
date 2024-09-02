@@ -24,15 +24,15 @@ O pipeline de CDC segue o fluxo:
 
 ## Implementação e Testes
 
-Execute o Docker Compose usando os seguintes comandos:
+- Execute o Docker Compose usando os seguintes comandos:
 ```
-bash
-Copiar código
 docker-compose up -d
 ```
-Acesse o MySQL para configurar o banco de dados. Crie um conector Debezium para monitorar o MySQL e publicar nos tópicos do Kafka.
+- Acesse o MySQL para configurar o banco de dados. 
 
-Configure o Debezium e o Kafka para monitorar mudanças e publicá-las.
+- Crie um conector Debezium para monitorar o MySQL e publicar nos tópicos do Kafka.
+
+- Configure o Debezium e o Kafka para monitorar mudanças e publicá-las.
 
 ## Kafka UI
 
@@ -46,13 +46,13 @@ Integrar o Apache Spark Streaming no pipeline de CDC permite que as organizaçõ
 
 Feliz Aprendizado! ✌️
 
-Comandos úteis
-
-bash
-Copiar código
+## Comandos úteis
+```
 # Iniciar o Docker Compose
 docker-compose up -d
+```
 
+```
 # Acessar o MySQL como usuário root
 docker-compose exec mysql bash -c 'mysql -u debezium -pdbz'
 
@@ -69,7 +69,8 @@ SHOW databases;
 
 # Acessar o MySQL como usuário debezium
 docker-compose exec mysql bash -c 'mysql -u debezium -pdbz'
-
+```
+```
 # Criar tabela no banco de dados cdc
 CREATE TABLE cdc.cliente(
     clienteId int,
@@ -89,7 +90,8 @@ INSERT INTO cliente VALUES (4, "Ana", "Oliveira", "Curitiba");
 INSERT INTO cliente VALUES (5, "Pedro", "Almeida", "Porto Alegre");
 INSERT INTO cliente VALUES (6, "Juliana", "Souza", "Fortaleza");
 INSERT INTO cliente VALUES (7, "Rafael", "Costa", "Salvador");
-
+```
+```
 # Registrar o conector Debezium
 curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @./conf/register-mysql.json
 
@@ -103,4 +105,5 @@ docker-compose exec kafka /kafka/bin/kafka-console-consumer.sh \
     --bootstrap-server kafka:9092 \
     --from-beginning \
     --property print.key=true \
-    --topic dbserver1.cdc.demo
+    --topic dbserver1.cdc.cliente
+```
