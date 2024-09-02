@@ -68,11 +68,17 @@ INSERT INTO cliente VALUES (5, "Pedro", "Almeida", "Porto Alegre");
 INSERT INTO cliente VALUES (6, "Juliana", "Souza", "Fortaleza");
 INSERT INTO cliente VALUES (7, "Rafael", "Costa", "Salvador");
 ```
-
+```
 - Crie um conector Debezium para monitorar o MySQL e publicar nos tópicos do Kafka.
+
 
 - Configure o Debezium e o Kafka para monitorar mudanças e publicá-las.
 
+# UPDATE dados na tabela cliente
+
+```
+UPDATE cliente set cidade = "Uberlândia" WHERE clienteID = 1;
+```
 ## Kafka UI
 
 Configure o Kafka UI para monitoramento visual dos fluxos de dados do Kafka.
