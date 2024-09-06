@@ -34,32 +34,38 @@ docker-compose exec mysql bash -c 'mysql -u root -pdebezium'
 ```
 
 # Após a autenticação, execute os comandos SQL
+```
 SELECT user, host FROM mysql.user;
-
+```
 CREATE DATABASE cdc;
-
+```
 GRANT ALL ON cdc.* TO 'debezium'@'%';
-
+```
 FLUSH PRIVILEGES;
-
+```
 SHOW databases;
-
+```
 # Acessar o MySQL como usuário debezium
+```
 docker-compose exec mysql bash -c 'mysql -u debezium -pdbz'
 ```
-```
 # Criar tabela no banco de dados cdc
+```
 CREATE TABLE cdc.cliente(
     clienteId int,
     nome varchar(255),
     sobrenome varchar(255),
     cidade varchar(255)
 );
-
+```
+```
 USE cdc;
+```
+```
 SHOW tables;
-
+```
 # Inserir dados na tabela cliente
+```
 INSERT INTO cliente VALUES (1, "Joao", "Fernandes", "São Paulo");
 INSERT INTO cliente VALUES (2, "Maria", "Silva", "Rio de Janeiro");
 INSERT INTO cliente VALUES (3, "Carlos", "Santos", "Belo Horizonte");
@@ -68,7 +74,7 @@ INSERT INTO cliente VALUES (5, "Pedro", "Almeida", "Porto Alegre");
 INSERT INTO cliente VALUES (6, "Juliana", "Souza", "Fortaleza");
 INSERT INTO cliente VALUES (7, "Rafael", "Costa", "Salvador");
 ```
-```
+
 - Crie um conector Debezium para monitorar o MySQL e publicar nos tópicos do Kafka.
 
 
@@ -83,7 +89,7 @@ UPDATE cliente set cidade = "Uberlândia" WHERE clienteID = 1;
 
 Configure o Kafka UI para monitoramento visual dos fluxos de dados do Kafka.
 
-Acesse o Kafka UI em:![(http://localhost:10000/)]
+Acesse o Kafka UI em:[http://localhost:10000/](http://localhost:10000/)
 
 ## Conclusão
 
@@ -97,19 +103,18 @@ Feliz Aprendizado! ✌️
 docker-compose up -d
 ```
 
-```
-
-
-```
 # Registrar o conector Debezium
+```
 curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @./conf/register-mysql.json
-
+```
 # Listar tópicos do Kafka
+```
 docker-compose exec kafka /kafka/bin/kafka-topics.sh \
 --bootstrap-server kafka:9092 \
 --list
-
+```
 # Consumir dados de um tópico do Kafka
+```
 docker-compose exec kafka /kafka/bin/kafka-console-consumer.sh \
     --bootstrap-server kafka:9092 \
     --from-beginning \
