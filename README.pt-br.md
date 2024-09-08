@@ -5,7 +5,7 @@ Introdução
 
 A Captura de Dados de Mudança (Change Data Capture, CDC) é o processo de identificar e capturar mudanças feitas em dados em um banco de dados e entregar essas mudanças em tempo real para sistemas ou processos downstream. O CDC desempenha um papel crucial na engenharia de dados ao permitir a integração e análise de dados em tempo real, garantindo que os dados mais atualizados estejam disponíveis para a tomada de decisões e processos operacionais.
 
-Este artigo apresenta um guia abrangente para entender o CDC e configurar um pipeline de CDC usando Docker.
+Este artigo apresenta um guia  para entender o CDC e configurar um pipeline de CDC usando Docker.
 
 ## Configuração do Docker Compose
 
