@@ -6,6 +6,7 @@ services:
   # ----------------- #
   spark:
     container_name: spark-master  
+    build: .
     image: docker.io/bitnami/spark:3.3
     environment:
       - SPARK_MODE=master
@@ -16,6 +17,9 @@ services:
     volumes:
       - ./data:/data
       - ./src:/src
+      - ./src:/opt/bitnami/spark/custom-scripts
+
+  
   spark-worker:
     container_name: spark-worker
     image: docker.io/bitnami/spark:3.3
@@ -28,6 +32,8 @@ services:
     volumes:
       - ./data:/data
       - ./src:/src 
+    ports:
+      - '8081:8081'
   # ----------------- #
   # Apache Zookeeper  #
   # ----------------- #

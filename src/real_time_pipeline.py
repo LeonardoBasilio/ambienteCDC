@@ -9,7 +9,7 @@ spark.sparkContext.setLogLevel("ERROR")
 df = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "kafka:9092") \
-    .option("subscribe", "dbserver1.data.example") \
+    .option("subscribe", "dbserver1.cdc.client") \
     .option("startingOffsets", "earliest") \
     .load()
 

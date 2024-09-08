@@ -1,7 +1,7 @@
 anotações do projeto para escrever no artigo
 sobre o kafka
 
-exec kafka /kafka/bin/kafka-topics.sh \--bootstrap-server kafka:9092 \--list
+exec kafka /kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
 este comando lista os tópicos
 
 exec kafka /kafka/bin/kafka-topics.sh --delete --topic dbserver --bootstrap-server kafka:9092
